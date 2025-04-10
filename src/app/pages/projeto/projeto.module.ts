@@ -7,7 +7,7 @@ import { ProjetoRoutingModule } from "./projeto.routing";
 import {TableModule} from 'primeng/table';
 import {CardModule} from 'primeng/card';
 import {ButtonModule} from 'primeng/button';
-
+import { FormsModule } from "@angular/forms";
 
 @NgModule({
 
@@ -17,7 +17,9 @@ import {ButtonModule} from 'primeng/button';
     PrimengModule,
     TableModule,
     CardModule,
-    ButtonModule
+    ButtonModule,
+    FormsModule
+
 
   ],
 
