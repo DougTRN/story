@@ -1,1 +1,14 @@
-/* You can add global styles to this file, and also import other style files */
+/* Seu style.css (onde .card-adjust é definido) */
+
+.card-adjust {
+  /* REMOVA ESTES: */
+  /* min-height: 89vh; */ /* Isto estava forçando o card a ter uma altura grande */
+  /* margin-top: 4rem; */  /* Isto estava criando uma margem gigante no topo do card */
+
+  /* Se você ainda quiser um pequeno espaçamento adicional entre o padding do .page-content e o card, você pode adicionar uma margem aqui, mas não é estritamente necessário. O padding-top do .page-content já lida com o espaçamento. */
+  /* margin-top: 10px; / / Exemplo de um pequeno ajuste se precisar */
+
+  margin-right: 0.625rem;
+  margin-left: 0.625rem;
+  /* Mantenha outros estilos de borda, sombra, padding interno do card, etc. */
+}

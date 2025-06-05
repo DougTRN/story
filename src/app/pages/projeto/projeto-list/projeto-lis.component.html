@@ -1,8 +1,29 @@
-<p-card header="Lista de Projeto">
-  <div class="flex flex-wrap col-12">
-    <p-button  icon="pi pi-plus" routerLink="novo"></p-button>
+<p-card styleClass="card-adjust my-custom-margin" header="Lista de Projeto">
+  <div
+    *ngIf="!carregando"
+    class="flex flex-wrap col-12 justify-content-between align-items-center "
+    style="margin-bottom: 1rem;"
+    >
+    <p-button
+      icon="pi pi-plus"
+      routerLink="novo"
+      label="Novo"
+      pFocusTrap
+    ></p-button>
   </div>
-  <p-table [value]="projeto" styleClass="p-datatable-striped">
+
+  <p-table
+    *ngIf="!carregando"
+    [value]="projeto"
+    [paginator]="true"
+    [rows]="5"
+    [rowsPerPageOptions]="[5, 10, 20]"
+    [scrollable]="true"
+    scrollHeight="400px"
+    styleClass="p-datatable-striped"
+    [loading]="carregando"
+  >
+
     <ng-template pTemplate="header">
       <tr>
         <th width="300px">Descrição</th>
@@ -14,6 +35,11 @@
       </tr>
     </ng-template>
     <ng-template pTemplate="body" let-disc>
+      <tr>
+        <td>
+          <button pButton type="button" class="p-button-rounded p-button-primary"
+          ptooltip="Editar" icon="pi pi-pencil" tooltipPosition="top" 
+          [routerLink]="['/projeto', disc.id]"></button>
       <tr>
         <td>{{disc.descricao}}</td>
         <td>{{disc.status && 'Ativo' || 'Inativo'}}</td>

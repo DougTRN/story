@@ -7,6 +7,10 @@ import { AppComponent } from './app.component';
 import { ProjetoModule } from './pages/projeto/projeto.module';
 import { AlunosModule } from './pages/alunos/alunos.module';
 import { PrimengModule } from './primeng.module';
+import { ProfessorModule } from './pages/professor/professor.module';
+import { CoreModule } from './pages/core/core.module';
+import { NgxSpinnerModule } from "ngx-spinner";
+import { ReactiveFormsModule } from '@angular/forms';
 
 @NgModule({
   declarations: [
@@ -19,8 +23,11 @@ import { PrimengModule } from './primeng.module';
     BrowserAnimationsModule,
     PrimengModule,
     ProjetoModule,
-    AlunosModule
-    
+    AlunosModule,
+    ProfessorModule,
+    CoreModule,
+    NgxSpinnerModule,
+    ReactiveFormsModule
   ],
   providers: [
   

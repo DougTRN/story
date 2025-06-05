@@ -1,21 +1,64 @@
-<p-card header="Cadastro de Projeto">
-  <div class="flex flex-wrap col-12">
-    <button pButton type="button" class="p-button p-button-raided" 
-    icon="pi pi-caret-left" pTooltip="Voltar" tooltipPosition="top" label="Voltar"
-     routerLink="/disciplinas"></button>
+<p-toast></p-toast>
+
+<p-card header="{{ editando ? 'Edição de' : 'Cadastro de' }} Projeto">
+  <div class="flex flex-wrap col-12 mb-3
+  justify-content-center" style="margin-bottom: 2rem;">
+    <button 
+      pButton 
+      type="button" 
+      class="p-button p-button-raised" 
+      icon="pi pi-caret-left" 
+      pTooltip="Voltar" 
+      tooltipPosition="top" 
+      label="Voltar" 
+      routerLink="/projeto">
+    </button>
   </div>
 
-  <form #form="ngForm" autocomplete="off" (ngSubmit)="cadastroProjeto(form)">
-       <div class="grid">
-        <span class="col-12 -mb-3">Descrição</span>
-        <div class="col-12 md:col-6 lg:col-3">
-          
-          <input pInputText name="descricao" #descricao="ngModel" [(ngModel)]="projeto.descricao" type="text">
-        </div>
-        <div>
-          <button pButton type="submit" label="Salvar"></button>
-        </div>
-       </div>
-  </form>
+  <form #form="ngForm" autocomplete="off" (ngSubmit)="salvar(form)">
+    <div class="field mb-4" style="margin-bottom: 2rem;">
+      <span class="p-float-label">
+        <input id="descricao" type="text" pInputText name="descricao" [(ngModel)]="disciplina.descricao" 
+          minlength="5" required="true" #descricao="ngModel" />
+        <label for="descricao">Descrição</label>
+      </span>
+      <app-message [control]="descricao" error="required" text="Informe uma descrição"></app-message>
+      <app-message [control]="descricao" error="minlength" text="Mínimo de {{ descricao.errors?.minlength?.requiredLength }} caracteres"></app-message>
+    </div>
 
+    <div class="field mb-4" style="margin-bottom: 2rem;">
+      <p-inputSwitch 
+        inputId="status" 
+        formControlName="status" 
+        binary="true"
+        style="margin-right: 8px;">
+      </p-inputSwitch>
+      <label for="status" class="ml-2">Status</label>
+    </div>
+<div class="flex justify-content-end" style="margin-bottom: 2rem;">
+      <p-button 
+        label="Salvar" 
+        icon="pi pi-save" 
+        type="submit" 
+        [disabled]="form.invalid || salvando" 
+        class="p-button-lg" pFocusTrap>
+      </p-button>
+    </div>
+
+    <div *ngIf="salvando" class="grid justify-content-center mt-2">
+      <div class="grid col-12 justify-content-center">
+        <p-progressSpinner 
+          [style]="{ width: '50px', height: '50px' }" 
+          styleClass="custom-spinner" 
+          strokeWidth="5" 
+          animationDuration=".5s">
+        </p-progressSpinner>
+      </div>
+      <div class="grid col-12 justify-content-center">
+        <h6>Salvando, aguarde...</h6>
+      </div>
+    </div>
+  </form>
 </p-card>
+
+<p-scrollTop target="window" [threshold]="300" icon="pi pi-arrow-up"></p-scrollTop>

@@ -5,9 +5,10 @@ import { AlunosCadastroComponent } from './alunos-cadastro/alunos-cadastro.compo
 import { AlunosRoutingModule } from './alunos.routing';
 import { PrimengModule } from 'src/app/primeng.module';
 import { FormsModule } from '@angular/forms';
-import {TableModule} from 'primeng/table';
-import {CardModule} from 'primeng/card';
-import {ButtonModule} from 'primeng/button';
+import { TableModule } from 'primeng/table';
+import { CardModule } from 'primeng/card';
+import { ButtonModule } from 'primeng/button';
+
 
 @NgModule({
   imports: [
@@ -18,7 +19,8 @@ import {ButtonModule} from 'primeng/button';
     TableModule,
     CardModule,
     ButtonModule
-    
+
+
   ],
   declarations: [
     AlunosListaComponent,

@@ -30,4 +30,16 @@ import { Projeto } from "../core/models/projeto.model";
       return firstValueFrom(this.http.post<Projeto>(this.projetoUr1, obj));
 
     }
+  
+    buscarPorId(id: number) {
+    return firstValueFrom(this.http.get(`${this.projetoUrl}/${id}`)).then(
+      (response) => response as any
+    );
   }
+
+  atualizar(obj: Projeto): Promise<Projeto> {
+    return firstValueFrom(
+      this.http.put<Projeto>(`${this.projetoUrl}/${obj.id}`, obj)
+    ).then((response) => response as Projeto);
+  }
+}

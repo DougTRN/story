@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { ProjetoService } from '../projeto.service';
+import { NgxSpinnerService } from 'ngx-spinner';
 
 @Component({
   selector: 'app-projeto-lis',
@@ -11,9 +12,11 @@ export class ProjetoLisComponent implements OnInit {
 [x: string]: any;
 
   projeto = [];
+  carregando = true;
 
   constructor(
-    private projetoService: ProjetoService
+    private projetoService: ProjetoService,
+    private spinner: NgxSpinnerService 
   ) { }
 
   ngOnInit() {
@@ -21,8 +24,13 @@ export class ProjetoLisComponent implements OnInit {
   }
 
   carregarProjeto(){
+    this.spinner.show();
+    this.carregando = true;
+
     this.projetoService.listar().then((obj) => {
       this.projeto = obj;
+      this.carregando = false;
+      this.spinner.hide();
     });
   }
 

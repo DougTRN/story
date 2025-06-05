@@ -1,0 +1,43 @@
+/* app.component.css */
+
+/* 1. RESET GLOBAL PARA HTML E BODY - CRUCIAL PARA EVITAR ROLAGEM INDESEJADA */
+html, body {
+  margin: 0;         /* Remove margens padrão do navegador */
+  padding: 0;        /* Remove paddings padrão do navegador */
+  height: 100%;      /* Garante que html e body ocupem 100% da altura da viewport */
+  overflow-x: hidden; /* Evita rolagem horizontal indesejada */
+}
+
+/* 2. DEFINE O CONTAINER PRINCIPAL DA APLICAÇÃO */
+.app-container {
+  display: flex;           /* Usa Flexbox para organizar os elementos */
+  flex-direction: column;  /* Coloca os filhos (navbar, page-content) um abaixo do outro */
+  min-height: 100vh;       /* Garante que o container ocupa pelo menos 100% da altura da viewport */
+}
+
+/* 3. O CONTEÚDO DA PÁGINA QUE VAI ABAIXO DA NAVBAR */
+.page-content {
+  flex-grow: 1; /* Faz com que o conteúdo da página ocupe todo o espaço vertical restante */
+
+  /* ESTA É A CHAVE para o espaçamento e para evitar a sobreposição: */
+  /* padding-top: Altura da Navbar (64px) + Espaçamento Adicional (10px) */
+  padding-top: calc(64px + 10px); /* O conteúdo começará 74px abaixo do topo da viewport */
+
+  /* Paddings laterais para o conteúdo da página, para não ficar grudado nas bordas */
+  padding-left: 20px; 
+  padding-right: 20px; 
+
+  /* Opcional: Ajuste para o conteúdo não ser muito largo em telas grandes */
+  max-width: 1200px; /* Exemplo de largura máxima para o conteúdo */
+  margin-left: auto; /* Centraliza o conteúdo horizontalmente */
+  margin-right: auto;
+}
+
+/* 4. ESTILOS PARA TOAST E SPINNER (Mantenha o z-index alto) */
+p-toast {
+  z-index: 1001; /* Deve ser maior que o da navbar para aparecer sobre ela */
+}
+
+ngx-spinner {
+  z-index: 9999 !important; /* Mantém este alto z-index para garantir que a spinner apareça acima de tudo */
+}

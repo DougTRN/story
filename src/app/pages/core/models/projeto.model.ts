@@ -1,4 +1,7 @@
 export class Projeto {
+  id(id: any) {
+    throw new Error('Method not implemented.');
+  }
   idprojeto?: number;
   descricao?: string;
   status?: boolean;
