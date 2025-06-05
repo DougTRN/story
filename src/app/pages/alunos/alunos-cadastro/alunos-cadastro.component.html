@@ -1,5 +1,7 @@
+<p-toast></p-toast>
+
 <p-card header="Cadastro de Aluno">
-  <div class="flex flex-wrap col-12 mb-3">
+  <div class="flex flex-wrap col-12 mb-3" style="margin-bottom: 2rem;">
     <button 
       pButton 
       type="button" 
@@ -12,38 +14,33 @@
     </button>
   </div>
 
-  <form #form="ngForm" autocomplete="off" (ngSubmit)="cadastrarAluno(form)">
-    <div class="grid">
-      <span class="col-12 -mb-3">Nome</span>
-      <div class="col-12 md:col-6 lg:col-4">
-        <input 
-          pInputText 
-          name="nome" 
-          #nome="ngModel" 
-          [(ngModel)]="aluno.nome" 
-          type="text" 
-          required>
-      </div>
+  <form [formGroup]="form" (ngSubmit)="salvar()">
+    <!-- Campo Nome -->
+    <div class="field mb-4" style="margin-bottom: 2rem;">
+      <span class="p-float-label">
+        <input id="nome" type="text" pInputText formControlName="nome" />
+        <label for="nome">Nome</label>
+      </span>
+    </div>
 
-      <span class="col-12 -mb-3">CPF</span>
-      <div class="col-12 md:col-6 lg:col-4">
-        <input 
-          pInputText 
-          name="cpf" 
-          #cpf="ngModel" 
-          [(ngModel)]="aluno.cpf" 
-          type="text" 
-          required>
-      </div>
+    <!-- Campo CPF -->
+    <div class="field mb-4" style="margin-bottom: 2rem;">
+      <span class="p-float-label">
+        <input id="cpf" type="text" pInputText formControlName="cpf" />
+        <label for="cpf">CPF</label>
+      </span>
+    </div>
 
-      <div class="col-12 mt-4">
-        <button 
-          pButton 
-          type="submit" 
-          label="Salvar" 
-          [disabled]="form.invalid">
-        </button>
-      </div>
+    <div class="flex justify-content-end" style="margin-bottom: 2rem;">
+      <p-button 
+        label="Salvar" 
+        icon="pi pi-save" 
+        type="submit" 
+        [disabled]="form.invalid" 
+        pFocusTrap>
+      </p-button>
     </div>
   </form>
 </p-card>
+
+<p-scrollTop target="window" [threshold]="300" icon="pi pi-arrow-up"></p-scrollTop>

@@ -9,6 +9,10 @@ const routes: Routes = [
         component: AlunosListaComponent 
     },
     {
+        path: 'novo', 
+        component: AlunosListaComponent 
+    },
+    {
         path: 'cadastro', 
         component: AlunosCadastroComponent 
     }

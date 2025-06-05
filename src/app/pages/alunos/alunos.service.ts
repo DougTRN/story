@@ -14,5 +14,6 @@ export class AlunoService {
   adicionarAluno(aluno: any) {
     aluno.id = this.alunos.length + 1;
     this.alunos.push(aluno);
+    return Promise.resolve(aluno);
   }
 }

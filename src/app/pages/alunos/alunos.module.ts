@@ -8,6 +8,7 @@ import { FormsModule } from '@angular/forms';
 import { TableModule } from 'primeng/table';
 import { CardModule } from 'primeng/card';
 import { ButtonModule } from 'primeng/button';
+import { ReactiveFormsModule } from '@angular/forms';
 
 
 @NgModule({
@@ -18,9 +19,9 @@ import { ButtonModule } from 'primeng/button';
     FormsModule,
     TableModule,
     CardModule,
-    ButtonModule
-
-
+    ButtonModule,
+    ReactiveFormsModule
+    
   ],
   declarations: [
     AlunosListaComponent,
