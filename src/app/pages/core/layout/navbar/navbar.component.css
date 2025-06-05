@@ -1,0 +1,86 @@
+/* Onde .navbar.component.css (ou o arquivo CSS onde .navbar é definido) */
+
+.navbar {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  background-color: #1976d2; /* Um tom de azul similar ao da imagem */
+  color: white;
+  padding: 10px 20px;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.2);
+  height: 64px; /* Altura da navbar, comum em designs de Material Design */
+
+  /* PROPRIEDADES ESSENCIAIS PARA FIXAR A NAVBAR - JÁ ESTÃO CORRETAS E COMPLETAS */
+  position: fixed; /* Tira a navbar do fluxo normal do documento */
+  top: 0;          /* Alinha a navbar ao topo da viewport */
+  left: 0;         /* Alinha a navbar ao lado esquerdo da viewport */
+  width: 100%;     /* Garante que a navbar ocupe 100% da largura da viewport */
+  z-index: 1000;   /* Garante que a navbar fique acima de outros conteúdos */
+}
+
+/* O restante dos seus estilos para botões, título, etc. permanece o mesmo */
+.navbar-left,
+.navbar-right {
+  display: flex;
+  align-items: center;
+}
+.menu-button,
+.profile-button {
+  background: none;
+  border: none;
+  color: white;
+  cursor: pointer;
+  padding: 8px;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  transition: background-color 0.3s ease;
+}
+
+.menu-button:hover,
+.profile-button:hover {
+  background-color: rgba(255, 255, 255, 0.1);
+}
+
+.menu-button svg,
+.profile-button svg {
+  width: 24px;
+  height: 24px;
+}
+
+.app-title {
+  font-size: 20px;
+  font-weight: 500;
+  margin-left: 15px;
+}
+
+/* ESTILOS PARA OS BOTÕES DO MENU LATERAL (Disciplinas, Professores, Alunos) */
+.btn-menu {
+  width: 100%;
+  text-align: left;
+  /* AUMENTAR O TAMANHO DA FONTE */
+  font-size: 1.1em; /* Exemplo: aumente para 1.1em, 1.2em ou um valor em px como 16px, 18px */
+
+  /* AJUSTAR O PADDING PARA AUMENTAR O TAMANHO DO BOTÃO */
+  /* Você já tem paddings com !important, ajuste-os aqui */
+  padding-left: 20px !important;
+  padding-right: 20px !important;
+  padding-top: 18px !important; /* Aumentado de 15px para 18px */
+  padding-bottom: 18px !important; /* Aumentado de 15px para 18px */
+
+  /* Opcional: border-radius: 0 !important; */
+}
+
+.btn-menu .p-button-label {
+  flex-grow: 1;
+}
+
+.btn-menu.ativo {
+  background-color: #007bff; /* Ou a cor que você usa para o estado ativo */
+  color: white;
+}
+
+.btn-menu:hover {
+  background-color: rgba(0, 123, 255, 0.7) !important;
+}

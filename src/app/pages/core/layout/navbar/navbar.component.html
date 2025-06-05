@@ -1,0 +1,52 @@
+<nav class="navbar">
+  <div class="navbar-left">
+    <button class="menu-button" (click)="sibebar = true">
+      <svg viewBox="0 0 24 24" fill="currentColor" width="24px" height="24px">
+        <path d="M0 0h24v24H0z" fill="none"/>
+        <path d="M3 18h18v-2H3v2zm0-5h18v-2H3v2zm0-7v2h18V6H3z"/>
+      </svg>
+    </button>
+    <span class="app-title">Projeto UI</span>
+  </div>
+  <div class="navbar-right">
+    <button class="profile-button" (click)="op.toggle($event)">
+      <svg viewBox="0 0 24 24" fill="currentColor" width="24px" height="24px">
+        <path d="M0 0h24v24H0z" fill="none"/>
+        <path d="M12 5.9c1.16 0 2.1.94 2.1 2.1s-.94 2.1-2.1 2.1S9.9 9.16 9.9 8s.94-2.1 2.1-2.1zm0 9c2.97 0 6.1 1.46 6.1 4.1v1h-12.2v-1c0-2.64 3.13-4.1 6.1-4.1zM12 4c-2.21 0-4 1.79-4 4s1.79 4 4 4 4-1.79 4-4-1.79-4-4-4zm0 9c-2.67 0-8 1.34-8 4v3h16v-3c0-2.66-5.33-4-8-4z"/>
+      </svg>
+    </button>
+  </div>
+</nav>
+
+<p-overlayPanel #op>
+  <ng-template pTemplate="content">
+    <div class="col-12">
+      <button pButton class="p-button-rounded p-button-primary" icon="pi pi-lock" label="Alterar Senha"
+        (click)="op.toggle($event)" routerLink="/alterarsenha"></button>
+    </div>
+</ng-template>
+</p-overlayPanel>
+
+<p-sidebar [(visible)]="sibebar">
+  <div class="flex flex-wrap">
+    <div class="col-12" style="margin-bottom: 1%;">
+      <p-button styleClass="p-button-rounded text-white w-full text-1xl btn-menu" label="Disciplinas"
+        routerLink="/projeto" routerLinkActive="ativo" (click)="sibebar = false"></p-button>
+    </div>
+    <div class="col-12" style="margin-bottom: 1%;">
+      <p-button styleClass="p-button-rounded text-white w-full text-1xl btn-menu" label="Professores"
+        routerLink="/professores" routerLinkActive="ativo" (click)="sibebar = false"></p-button>
+    </div>
+        <div class="col-12" style="margin-bottom: 1%;">
+      <p-button styleClass="p-button-rounded text-white w-full text-1xl btn-menu" label="Alunos"
+        routerLink="/alunos" routerLinkActive="ativo" (click)="sibebar = false"></p-button>
+    </div>
+
+
+
+
+
+
+
+  </div>
+</p-sidebar>
