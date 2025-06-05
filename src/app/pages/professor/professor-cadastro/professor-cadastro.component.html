@@ -1,0 +1,45 @@
+<p-toast></p-toast>
+
+<p-card header="Cadastro de Professor">
+  <div class="flex flex-wrap col-12 mb-3" style="margin-bottom: 2rem;">
+    <button 
+      pButton 
+      type="button" 
+      class="p-button p-button-raised" 
+      icon="pi pi-caret-left" 
+      pTooltip="Voltar" 
+      tooltipPosition="top" 
+      label="Voltar" 
+      routerLink="/professores">
+    </button>
+  </div>
+
+  <form [formGroup]="form" (ngSubmit)="salvar()">
+    <div class="field mb-4"style="margin-bottom: 2rem;">
+      <span class="p-float-label">
+        <input id="nome" type="text" pInputText formControlName="nome" />
+        <label for="nome">Nome</label>
+      </span>
+    </div>
+
+    <div class="field mb-4" style="margin-bottom: 2rem;">
+      <span class="p-float-label">
+        <input id="cpf" type="text" pInputText formControlName="cpf" />
+        <label for="cpf">CPF</label>
+      </span>
+    </div>
+
+    <div class="flex justify-content-end" style="margin-bottom: 2rem;">
+      <p-button 
+        label="Salvar" 
+        icon="pi pi-save" 
+        type="submit" 
+        [disabled]="form.invalid" 
+        pFocusTrap>
+      </p-button>
+    </div>
+  </form>
+</p-card>
+
+<p-scrollTop target="window" [threshold]="300" icon="pi pi-arrow-up"></p-scrollTop>
+
